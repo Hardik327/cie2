@@ -1,0 +1,51 @@
+@model _211_cie2.Models.Doctor
+
+@{
+    ViewData["Title"] = "Doctor Details";
+}
+
+<h1>Doctor Details</h1>
+
+<p>
+    <strong>Doctor ID:</strong>
+    @Model.DoctorId
+</p>
+
+<p>
+    <strong>Doctor Name:</strong>
+    @Model.DoctorName
+</p>
+
+<p>
+    <strong>Specialization:</strong>
+    @Model.Specialization
+</p>
+
+<p>
+    <strong>Experience:</strong>
+    @Model.Experience years
+</p>
+
+<p>
+    <strong>Consultation Fee:</strong>
+    ₹@Model.ConsultationFee
+</p>
+
+<p>
+    <strong>Total Charge:</strong>
+    ₹@Model.CalculateTotalCharge()
+</p>
+
+<br />
+
+<a asp-action="Appointment"
+   asp-route-id="@Model.DoctorId">
+    Book Appointment
+</a>
+
+<br />
+<br />
+
+<a asp-action="Index">
+    Back to Doctor List
+</a>

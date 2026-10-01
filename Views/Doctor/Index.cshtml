@@ -1,0 +1,53 @@
+@model List<_211_cie2.Models.Doctor>
+
+@{
+    ViewData["Title"] = "Doctor List";
+}
+
+<h1>Hospital Appointment Management System</h1>
+
+<h2>Doctor List</h2>
+
+<table border="1" cellpadding="10">
+    <thead>
+        <tr>
+            <th>Doctor ID</th>
+            <th>Doctor Name</th>
+            <th>Specialization</th>
+            <th>Experience</th>
+            <th>Consultation Fee</th>
+            <th>Total Charge</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        @foreach (var doctor in Model)
+        {
+            <tr>
+                <td>@doctor.DoctorId</td>
+
+                <td>@doctor.DoctorName</td>
+
+                <td>@doctor.Specialization</td>
+
+                <td>@doctor.Experience years</td>
+
+                <td>₹@doctor.ConsultationFee</td>
+
+                <td>₹@doctor.CalculateTotalCharge()</td>
+
+                <td>
+                    <a asp-action="Details"
+                       asp-route-id="@doctor.DoctorId">
+                        Details
+                    </a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<br />
+
+<a asp-action="Posts">View Posts</a>

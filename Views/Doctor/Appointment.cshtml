@@ -1,0 +1,45 @@
+@model _211_cie2.Models.Doctor
+
+@{
+    ViewData["Title"] = "Book Appointment";
+}
+
+<h1>Book Hospital Appointment</h1>
+
+<form asp-action="Appointment" method="post">
+
+    <!-- Hidden field sends DoctorId with the form. -->
+    <input type="hidden"
+           name="DoctorId"
+           value="@Model.DoctorId" />
+
+    <p>
+        <strong>Doctor:</strong>
+        @Model.DoctorName
+    </p>
+
+    <p>
+        <strong>Specialization:</strong>
+        @Model.Specialization
+    </p>
+
+    <label>Patient Name:</label>
+
+    <input type="text"
+           name="PatientName"
+           required />
+
+    <br />
+    <br />
+
+    <button type="submit">
+        Submit Appointment
+    </button>
+
+</form>
+
+<br />
+
+<a asp-action="Index">
+    Back to Doctor List
+</a>
